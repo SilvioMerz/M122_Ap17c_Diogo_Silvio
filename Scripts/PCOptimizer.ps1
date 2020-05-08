@@ -39,6 +39,7 @@ function changeAutostart($byteCode)
 
 function MessageBoxSelection($text)
 {
+    #Message box with defined title and options and only variable text
     [System.Windows.MessageBox]::Show($text,'PC Optimizer','YesNo','Question')
 }
 
@@ -138,6 +139,7 @@ $deleteTempFiles=
 ##################################################
 $deactivateApp= 
 {
+    #Bytecode to deactivate autostart
     changeAutostart([byte[]](0x03,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00))
 }
 ##################################################
@@ -148,6 +150,7 @@ $deactivateApp=
 ##################################################
 $activateApp= 
 {
+    #Bytecode to activate autostart
     changeAutostart([byte[]](0x02,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00))
 }
 ##################################################
@@ -186,7 +189,7 @@ $quitProcess=
 
 
 ##################################################
-#"Aktualisieren" button is pressed::
+#"Aktualisieren" button is pressed:
 ##################################################
 $updateProcesses= 
 {
