@@ -139,9 +139,7 @@ $deactivateApp=
         $appname = ($listAutostart.Items[$listAutostart.SelectedIndices[0]].SubItems[$IdColumnIndex]).Text
 
         # Appstart wird deaktiviert
-        Invoke-Command -ScriptBlock {
-            Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run -Name $appname -Value ([byte[]](0x33,0x32,0xFF))
-        }
+        Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run -Name $appname -Value ([byte[]](0x33,0x32,0xFF))
         
         #Messagebox wird gerufen, Ausführung der Aktion wird bestätigt
         $msgBoxInput =  [System.Windows.MessageBox]::Show('Die ausgewählte App wurde erfolgreich deaktiviert','PC Optimizer')
@@ -166,9 +164,7 @@ $activateApp=
         $appname = ($listAutostart.Items[$listAutostart.SelectedIndices[0]].SubItems[$IdColumnIndex]).Text
 
         # Appstart wird aktiviert
-        Invoke-Command -ScriptBlock {
-            Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run -Name $appname -Value ([byte[]](0x02,00,00,00,00,00,00,00,00,00,00,00))
-        }
+        Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run -Name $appname -Value ([byte[]](0x02,00,00,00,00,00,00,00,00,00,00,00))
                 
         #Messagebox wird gerufen, Ausführung der Aktion wird bestätigt
         $msgBoxInput =  [System.Windows.MessageBox]::Show('Die ausgewählte App wurde erfolgreich aktiviert','PC Optimizer')
