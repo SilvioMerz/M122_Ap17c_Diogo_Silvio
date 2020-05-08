@@ -427,7 +427,7 @@ $loginBtn.Location = New-Object System.Drawing.Size(320,20)
 $loginBtn.Size = New-Object System.Drawing.Size(50,20)
 $loginBtn.Text = "Login"
 $loginBtn.add_Click({
-    if ($passwortInput.Text -ceq "TBZ") {
+    if ($passwortInput.Text -ceq "PC-Optimizer_Admin") {
         #Close login form
         $loginF.Hide()
         $loginF.Close() | Out-Null
