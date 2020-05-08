@@ -453,9 +453,10 @@ $passwortLbl = New-Object System.Windows.Forms.Label
     $loginF.Controls.Add($passwortLbl)
 
 # Input Feld für das Passwort hinzufügen
-$passwortInput = New-Object System.Windows.Forms.Textbox
+$passwortInput = New-Object System.Windows.Forms.MaskedTextBox
     $passwortInput.Location = New-Object System.Drawing.Size(100,20)
     $passwortInput.Size = New-Object System.Drawing.Size(200,20)
+    $passwortInput.PasswordChar = '*'
 
     $loginF.Controls.Add($passwortInput)
 
@@ -465,7 +466,7 @@ $loginBtn = New-Object System.Windows.Forms.Button
     $loginBtn.Size = New-Object System.Drawing.Size(50,20)
     $loginBtn.Text = "Login"
     $loginBtn.add_Click({
-        if ($passwortInput.Text -eq "TBZ") {
+        if ($passwortInput.Text -ceq "TBZ") {
         
             # Login Form schliessen / verstecken
             $loginF.Hide()
@@ -479,6 +480,9 @@ $loginBtn = New-Object System.Windows.Forms.Button
     })
     
     $loginF.Controls.Add($loginBtn)
+    
+    #Um mit Enter das Formular abzuschicken
+    $loginF.AcceptButton = $loginBtn
 
 # Login Form anzeigen
 $loginf.ShowDialog()
