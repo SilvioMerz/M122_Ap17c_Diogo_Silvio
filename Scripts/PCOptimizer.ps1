@@ -71,7 +71,7 @@ $emptyDirectives=
                 ForEach-Object {
                     try {
                         #Löscht das Objekt
-                        $_ | Remove-Item -Force -ErrorAction Stop
+                        $_ | Remove-Item -Recurse -Force -ErrorAction Stop
                     } catch {
                         #Falls es benutzt wird, wird eine Warnung geschrieben
                         Write-Warning "Could not remove Item $($_.TargetObject)"
@@ -108,7 +108,7 @@ $deleteTempFiles=
             ForEach-Object {
                 try {
                     #Löscht das Objekt
-                    $_ | Remove-Item -Force -ErrorAction Stop
+                    $_ | Remove-Item -Recurse -Force -ErrorAction Stop
                 } catch {
                     #Falls es benutzt wird, wird eine Warnung geschrieben
                     Write-Warning "Could not remove Item $($_.TargetObject)"
